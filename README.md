@@ -231,18 +231,18 @@ Alert severity
 Investigation timeline
 
 🛠️ Technology Stack
-Component	Technology
-SIEM Platform	Splunk Enterprise
-Log Collection	Splunk Universal Forwarder
-Backend	Python
-Frontend	Streamlit
-Data Processing	Pandas
-Visualization	Plotly
-AI Engine	OpenAI API / Ollama
-Reporting	ReportLab
-Threat Intelligence	VirusTotal, AbuseIPDB
-Framework	MITRE ATT&CK
-Version Control	GitHub
+Component	                                        Technology
+SIEM Platform	                                 Splunk Enterprise
+Log Collection	                           Splunk Universal Forwarder
+Backend	                                            Python
+Frontend	                                         Streamlit
+Data Processing	                                     Pandas
+Visualization	                                       Plotly
+AI Engine                                    	OpenAI API / Ollama
+Reporting                                        	ReportLab
+Threat Intelligence	                         VirusTotal, AbuseIPDB
+Framework	                                      MITRE ATT&CK
+Version Control                                  	GitHub
 
 
 📂 Repository Structure
