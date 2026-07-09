@@ -1,0 +1,106 @@
+(venv) PS C:\Users\racha\AI-SOC-Assistant> python test_ai.py
+============================================================
+PARSED EVENT
+============================================================
+{'event_id': '4672', 'computer': 'Rachana', 'account': 'SYSTEM', 'process': 'N/A', 'privileges': 'SeAssignPrimaryTokenPrivilege\r\n\t\t\tSeTcbPrivilege\r\n\t\t\tSeSecurityPrivilege\r\n\t\t\tSeTakeOwnershipPrivilege\r\n\t\t\tSeLoadDriverPrivilege\r\n\t\t\tSeBackupPrivilege\r\n\t\t\tSeRestorePrivilege\r\n\t\t\tSeDebugPrivilege\r\n\t\t\tSeAuditPrivilege\r\n\t\t\tSeSystemEnvironmentPrivilege\r\n\t\t\tSeImpersonatePrivilege\r\n\t\t\tSeDelegateSessionUserImpersonatePrivilege', 'mitre': {'tactic': 'Privilege Escalation', 'technique': 'Valid Accounts', 'id': 'T1078'}, 'risk': {'score': 100, 'severity': 'Critical'}}
+
+============================================================
+AI SOC ANALYSIS
+============================================================
+Okay, here's the SOC Investigation Report based on the provided evidence, adhering strictly to the rules and guidelines.
+
+====================================================
+SOC INVESTIGATION REPORT
+====================================================
+
+
+EVENT SUMMARY
+====================================================
+
+Event ID: 4672
+
+Risk Score: 100/100
+
+Severity: Critical
+
+Windows Description:  A Windows event with an Event ID of 4672 has occurred on the Rachana computer. The event was triggered by a process running under the SYSTEM account, resulting in a risk score of 100/100 and classified as Critical. No Title or Description is provided.
+
+
+MITRE ATT&CK
+====================================================
+
+Tactic: Privilege Escalation
+
+Technique: Valid Accounts
+
+Technique ID: T1078
+
+
+
+WHY THIS EVENT OCCURRED
+====================================================
+
+Explain the likely reason this event occurred.
+
+Only use provided evidence.
+
+The event indicates that a process is running under the SYSTEM account.  Event ID 4672, when coupled with the high risk score and mapping to the "Privilege Escalation" tactic using the "Valid Accounts" technique (T1078), suggests a potential issue related to elevated privileges. The lack of details about the process itself makes it impossible to determine the exact reason for the SYSTEM account usage at this time.
+
+
+IS THIS SUSPICIOUS?
+====================================================
+
+Answer: Suspicious
+
+Reason:
+
+The key indicators are the high risk score (100/100) and the use of the SYSTEM account. While not definitively malicious, these factors warrant immediate investigation due to the potential for privilege escalation.  Without knowing which process is involved, it cannot be ruled out as a potential security concern. 
+
+INVESTIGATION STEPS
+====================================================
+
+1.  **Identify the Process:** Determine the specific process that triggered this event on the Rachana computer. This requires further investigation using endpoint detection and response (EDR) tools, system logs, or monitoring dashboards for activity associated with the SYSTEM account.
+2.  **Analyze System Logs:** Examine detailed Windows security logs (specifically Application Event Log, Security Log) around the time of the event to understand what actions were performed by the process running under SYSTEM. Look for unusual network connections, file modifications, registry changes, or user logins.
+3.  **Investigate Account Activity:** Review the SYSTEM account's activity – recent logins, commands executed, and processes started – to identify any anomalous behavior preceding this event.
+
+
+RECOMMENDED ACTIONS
+====================================================
+
+1.  **Isolate Rachana Computer (if possible):** Depending on security policies, consider isolating the Rachana computer from the network until further analysis is complete to prevent potential lateral movement.
+2.  **Full System Scan:** Perform a full system scan with an updated antivirus/EDR solution to detect and remove any potentially malicious software that might be present.
+3.  **Process Review & Permissions Audit:** Immediately review the permissions associated with the process involved in this event and confirm it is legitimate and necessary for its intended function.
+
+
+INDICATORS OF COMPROMISE
+====================================================
+
+User: SYSTEM
+
+Process: Not Present – Requires identification from investigation steps 1 & 2 above.
+
+Computer: Rachana
+
+Event ID: 4672
+
+IP Address: Not Present
+
+Command Line: Not Present
+
+
+
+SOC ANALYST VERDICT
+====================================================
+
+Suspicious
+
+Note: This assessment is based solely on the provided data. Further investigation is crucial to determine the root cause and confirm whether this event represents a genuine security threat. 
+
+
+============================================================
+SOC ALERT
+============================================================
+{'alert_id': 'SOC-20260709-151657', 'timestamp': '2026-07-09T15:16:57.239225', 'event_id': '4672', 'host': 'Rachana', 'user': 'SYSTEM', 'process': 'N/A', 'severity': 'Critical', 'risk_score': 100, 'mitre': {'tactic': 'Privilege Escalation', 'technique': 'Valid Accounts', 'id': 'T1078'}, 'correlation': None}
+
+Incident Report Created:
+reports/SOC-20260709-151657.json
