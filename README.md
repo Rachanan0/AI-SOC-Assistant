@@ -339,6 +339,7 @@ Automated containment actions
 
 Rachana
 
+
 Cybersecurity Student | SOC Analyst Aspirant
 
 Skills:
@@ -363,3 +364,25 @@ This project demonstrates practical experience in:
 
 
 This README is closer to what a **SOC Analyst L1 recruiter or cybersecurity engineer** expects to see. It positions the project as a **security operations platform**, not just an AI application.
+
+## Latest Features
+
+### AI SOC Investigation Pipeline
+
+- Splunk Enterprise integration
+- Windows Security Event parsing
+- MITRE ATT&CK automated mapping
+- Risk-based alert scoring
+- Multi-event correlation detection
+- AI-powered SOC investigation reports
+- Automated incident report generation
+
+### Detection Capabilities
+
+Currently detects:
+
+- Failed logon brute force attempts (4625)
+- Privilege assignment events (4672)
+- Process creation monitoring (4688)
+- Credential access activity (5379)
+- Account discovery activity (4798)
