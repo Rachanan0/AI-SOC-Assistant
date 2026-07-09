@@ -1,0 +1,16 @@
+{
+    "alert_id": "SOC-20260709-140328",
+    "timestamp": "2026-07-09T14:03:28.260975",
+    "event_id": "5379",
+    "host": "Rachana",
+    "user": "racha",
+    "process": "Credential Manager",
+    "severity": "Medium",
+    "risk_score": 40,
+    "mitre": {
+        "tactic": "Credential Access",
+        "technique": "Credentials from Password Stores",
+        "id": "T1555"
+    },
+    "correlation": null
+}

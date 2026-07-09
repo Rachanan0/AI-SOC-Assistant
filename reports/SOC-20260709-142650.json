@@ -1,0 +1,16 @@
+{
+    "alert_id": "SOC-20260709-142650",
+    "timestamp": "2026-07-09T14:26:50.295493",
+    "event_id": "4672",
+    "host": "Rachana",
+    "user": "SYSTEM",
+    "process": "N/A",
+    "severity": "Critical",
+    "risk_score": 100,
+    "mitre": {
+        "tactic": "Privilege Escalation",
+        "technique": "Valid Accounts",
+        "id": "T1078"
+    },
+    "correlation": null
+}

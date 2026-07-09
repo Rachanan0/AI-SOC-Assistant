@@ -3,7 +3,7 @@ from ollama import chat
 
 class AIEngine:
 
-    def analyze(self, event, raw_event):
+    def analyze(self, event, raw_event, correlation=None):
 
         mitre = event.get("mitre", {})
         risk = event.get("risk", {})
@@ -12,20 +12,24 @@ class AIEngine:
 
         prompt = f"""
 
-You are a Senior SOC Analyst working in an enterprise SOC.
+You are a Senior SOC Analyst working in an enterprise Security Operations Center.
 
-Analyze ONLY the provided evidence.
+Your task is to analyze Windows Security Events.
 
-Rules:
+Follow these rules strictly:
+
+- Analyze ONLY provided evidence.
 - Do not guess.
 - Do not invent malware.
 - Do not assume attacker activity.
-- Do not change MITRE mapping.
+- MITRE ATT&CK mapping indicates possible behavior, NOT confirmed attack.
+- Risk score is calculated by the detection engine.
 - If information is missing write "Not Present".
+- A normal Windows activity should be classified as Benign.
 
 
 ====================================================
-EVENT DATA
+EVENT INFORMATION
 ====================================================
 
 Event ID:
@@ -41,7 +45,7 @@ Process:
 {event.get("process")}
 
 
-Windows Event Information:
+Windows Event:
 
 Title:
 {windows_event.get("title")}
@@ -51,7 +55,7 @@ Description:
 
 
 Risk Score:
-{risk.get("score")}
+{risk.get("score")}/100
 
 Severity:
 {risk.get("severity")}
@@ -72,14 +76,19 @@ Technique ID:
 
 
 ====================================================
+CORRELATION INFORMATION
+====================================================
 
-Generate a professional SOC investigation report.
+{correlation if correlation else "No related events detected."}
 
 
 ====================================================
+SOC INVESTIGATION REPORT
+====================================================
+
+
 EVENT SUMMARY
 ====================================================
-
 
 Event ID:
 
@@ -87,14 +96,9 @@ Risk Score:
 
 Severity:
 
-
 Windows Description:
 
-(Write one clear sentence.
-Do not copy raw logs.)
 
-
-====================================================
 MITRE ATT&CK
 ====================================================
 
@@ -105,44 +109,65 @@ Technique:
 Technique ID:
 
 
-====================================================
 WHY THIS EVENT OCCURRED
 ====================================================
 
+Explain the possible reason this event occurred.
 
-Explain based only on evidence.
+Use only available evidence.
 
 
-====================================================
 IS THIS SUSPICIOUS?
 ====================================================
 
-
 Answer:
+
 Benign / Suspicious / Malicious
 
-Explain why.
+
+Reason:
+
+Classify based on:
+
+Benign:
+- Normal Windows activity
+- Legitimate system process
+- Expected user action
+
+Suspicious:
+- Unusual behavior
+- Unknown process
+- Multiple related events
+- Abnormal account activity
+
+Malicious:
+- Strong evidence of attack
+- Malware indicators
+- Confirmed abuse
 
 
-====================================================
 INVESTIGATION STEPS
 ====================================================
 
 1.
+
 2.
+
 3.
 
 
-====================================================
+
 RECOMMENDED ACTIONS
 ====================================================
 
 1.
+
 2.
+
 3.
 
 
-====================================================
+
 INDICATORS OF COMPROMISE
 ====================================================
 
@@ -159,11 +184,12 @@ IP Address:
 Command Line:
 
 
-====================================================
+
 SOC ANALYST VERDICT
 ====================================================
 
 (Benign / Suspicious / Malicious)
+
 
 """
 
