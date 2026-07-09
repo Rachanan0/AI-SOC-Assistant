@@ -1,4 +1,7 @@
 from datetime import datetime
+import uuid
+
+from alert_database import insert_alert
 
 
 class AlertManager:
@@ -6,66 +9,52 @@ class AlertManager:
 
     def create_alert(self, event, correlation=None):
 
-        alert = {}
+        alert = {
 
-        alert["alert_id"] = (
-            "SOC-" +
-            datetime.now().strftime("%Y%m%d-%H%M%S")
-        )
+            "alert_id":
+            "SOC-" + datetime.now().strftime("%Y%m%d-%H%M%S"),
 
 
-        alert["timestamp"] = datetime.now().isoformat()
+            "timestamp":
+            datetime.now().isoformat(),
 
 
-        alert["event_id"] = event.get(
-            "event_id",
-            "Unknown"
-        )
+            "event_id":
+            event.get("event_id"),
 
 
-        alert["host"] = event.get(
-            "computer",
-            "Unknown"
-        )
+            "host":
+            event.get("computer"),
 
 
-        alert["user"] = event.get(
-            "account",
-            "Unknown"
-        )
+            "user":
+            event.get("account"),
 
 
-        alert["process"] = event.get(
-            "process",
-            "Unknown"
-        )
+            "process":
+            event.get("process"),
 
 
-        alert["severity"] = event.get(
-            "risk",
-            {}
-        ).get(
-            "severity",
-            "Unknown"
-        )
+            "severity":
+            event.get("risk", {}).get("severity"),
 
 
-        alert["risk_score"] = event.get(
-            "risk",
-            {}
-        ).get(
-            "score",
-            0
-        )
+            "risk_score":
+            event.get("risk", {}).get("score"),
 
 
-        alert["mitre"] = event.get(
-            "mitre",
-            {}
-        )
+            "mitre":
+            event.get("mitre"),
 
 
-        alert["correlation"] = correlation
+            "correlation":
+            correlation
+
+        }
+
+
+        # Save alert into SQLite database
+        insert_alert(alert)
 
 
         return alert
