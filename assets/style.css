@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@500&display=swap');
+
+/* ===========================
+   GLOBAL
+=========================== */
+
+html,
+body,
+.stApp{
+
+background:#08111F;
+
+font-family:'Inter',sans-serif;
+
+color:#F8FAFC;
+
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+section[data-testid="stSidebar"]{
+
+background:linear-gradient(180deg,#08111F,#0F172A);
+
+border-right:1px solid #334155;
+
+}
+
+/* ===========================
+   TITLES
+=========================== */
+
+h1{
+
+font-family:'Orbitron',sans-serif;
+
+font-size:42px;
+
+color:#38BDF8;
+
+text-align:center;
+
+text-shadow:0px 0px 20px rgba(56,189,248,.7);
+
+animation:glow 2s infinite alternate;
+
+}
+
+h2,h3{
+
+font-family:'Orbitron',sans-serif;
+
+color:white;
+
+}
+
+/* ===========================
+   TEXT
+=========================== */
+
+p,
+label,
+span{
+
+color:#CBD5E1;
+
+font-size:16px;
+
+}
+
+/* ===========================
+   KPI CARDS
+=========================== */
+
+div[data-testid="metric-container"]{
+
+background:rgba(22,33,62,.95);
+
+padding:22px;
+
+border-radius:18px;
+
+border:1px solid #2563EB;
+
+box-shadow:0px 0px 18px rgba(37,99,235,.25);
+
+transition:.35s;
+
+}
+
+div[data-testid="metric-container"]:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0px 0px 30px rgba(37,99,235,.6);
+
+}
+
+/* ===========================
+   DATAFRAME
+=========================== */
+
+div[data-testid="stDataFrame"]{
+
+background:#16213E;
+
+border-radius:18px;
+
+border:1px solid #334155;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.stButton>button{
+
+background:#2563EB;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.stButton>button:hover{
+
+background:#1D4ED8;
+
+box-shadow:0px 0px 20px #2563EB;
+
+}
+
+/* ===========================
+   SELECTBOX
+=========================== */
+
+.stSelectbox{
+
+color:white;
+
+}
+
+/* ===========================
+   INFO BOXES
+=========================== */
+
+div[data-testid="stAlert"]{
+
+border-radius:15px;
+
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#2563EB;
+
+border-radius:20px;
+
+}
+
+/* ===========================
+   GLOW ANIMATION
+=========================== */
+
+@keyframes glow{
+
+from{
+
+text-shadow:0px 0px 10px #38BDF8;
+
+}
+
+to{
+
+text-shadow:0px 0px 30px #38BDF8;
+
+}
+
+}
